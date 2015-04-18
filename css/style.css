@@ -1,0 +1,235 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  color: #ffffff;
+}
+
+a {
+  color: #196a74;
+  text-decoration: none;
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+.slider ul li img{
+  width: 100%;
+}
+#slider{
+  -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.slider_activo{
+  left: 600px;
+  -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+.marco{
+  width: 550px;
+  height: 530px;
+  border: 10px solid black;
+  overflow: hidden;
+  margin: 20px;
+  z-index: 6;
+}
+.cd-background-wrapper {
+  background-color: #001426;
+  position: relative;
+  overflow: hidden;
+  z-index: 6;
+}
+.no-touch .cd-background-wrapper {
+  -webkit-perspective: 7000px;
+  -moz-perspective: 7000px;
+  perspective: 7000px;
+}
+.cd-background-wrapper::before {
+  /* never visible - this is used in jQuery to check the device type */
+  content: 'web';
+  display: none;
+}
+.touch .cd-background-wrapper::before {
+  /* never visible - this is used in jQuery to check the device type */
+  content: 'mobile';
+}
+
+.cd-floating-background {
+  position: relative;
+}
+.cd-floating-background img {
+  display: block;
+  max-width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* fixes a Firefox bug - images not correctly rendered*/
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.cd-floating-background img:not(:first-child) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.no-touch .cd-floating-background {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.no-touch .cd-floating-background.is-absolute {
+  position: absolute;
+}
+.no-touch .cd-floating-background img:first-child {
+  -webkit-transform: translateZ(50px);
+  -moz-transform: translateZ(50px);
+  -ms-transform: translateZ(50px);
+  -o-transform: translateZ(50px);
+  transform: translateZ(50px);
+}
+.no-touch .cd-floating-background img:nth-child(2) {
+  -webkit-transform: translateZ(120px);
+  -moz-transform: translateZ(120px);
+  -ms-transform: translateZ(120px);
+  -o-transform: translateZ(120px);
+  transform: translateZ(120px);
+}
+.no-touch .cd-floating-background img:nth-child(3) {
+ -webkit-transform: translateZ(200px);
+  -moz-transform: translateZ(200px);
+ -ms-transform: translateZ(200px);
+ -o-transform: translateZ(200px);
+ transform: translateZ(200px);
+}
+.no-touch .cd-floating-background img:nth-child(4) {
+  -webkit-transform: translateZ(270px);
+  -moz-transform: translateZ(270px);
+  -ms-transform: translateZ(270px);
+  -o-transform: translateZ(270px);
+  transform: translateZ(270px);
+}
+.no-touch.no-preserve-3d .cd-floating-background {
+  /* we target browsers that don't support preserve-3d and show just a standard image - no effect visible */
+  position: relative;
+}
+
+.tricky{
+  /*mix-blend-mode: multiply;*/
+  opacity: 0.8;
+}
+/*carrusel*/
+
+.carouselbox {
+    font-family: helvetica,sans-serif;
+    font-size: 14px;
+    width: 550px;
+    height: 530px;
+    position: absolute;
+    border: 10px solid black;
+    overflow: hidden;
+    left: 20px;
+    -moz-transition: all 5s ease-in-out;
+    -webkit-transition: all 5s ease-in-out;
+    transition: all 5s ease-in-out;
+  }
+  .slider_activo{
+  left: 600px;
+  -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+  .content {
+    margin: 0;
+    padding: 0;
+  }
+  .content li {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    text-align: center;
+  }
+  .content li img{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+.active {
+  height: 530px;
+}
+.active li {
+  position: absolute;
+  top: 600px;
+}
+.active li.current {
+  top: 0px;
+}
+
+.active .buttons {
+  padding-bottom: 10px;
+  background: black;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  bottom: 0px;
+  display: inline;
+  cursor: pointer;
+}
+.prev{
+  padding: 10px;
+}
+.next{
+  padding: 10px;
+}
+.carouselbox .boton {
+  border: none;
+  display: none;
+  color: white;
+  z-index: 2;
+}
+.active .boton{
+  display: inline;
+} 
+.offscreen {
+  position: absolute;
+  left: -2000px;
+}
+
+
+
+
+
+
